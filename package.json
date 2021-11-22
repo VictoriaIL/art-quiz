@@ -1,0 +1,17 @@
+{
+  "version": "0.1.0",
+  "description": "My new js application",
+  "private": true,
+  "name": "art-quiz",
+  "scripts": {
+    "start": "rss-scripts start",
+    "build": "rss-scripts build"
+  },
+  "devDependencies": {
+    "bootstrap": "^5.1.3",
+    "rss-scripts": "^0.2.4"
+  },
+  "dependencies": {
+    "popper.js": "^1.16.1"
+  }
+}
