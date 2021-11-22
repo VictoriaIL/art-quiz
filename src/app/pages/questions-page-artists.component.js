@@ -41,11 +41,11 @@ export const questionsPageArtistsComponent = new QuestionsPageArtistsComponent({
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Верно!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h4 class="modal-title" id="exampleModalLabel">Верно!</h4>
+<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-close-right" data-bs-dismiss="modal">Next question</button>
+        <button type="button" class="btn btn-secondary btn-close-right" data-bs-dismiss="modal" style="background-color: green">Next question</button>
       </div>
     </div>
   </div>
@@ -54,11 +54,11 @@ export const questionsPageArtistsComponent = new QuestionsPageArtistsComponent({
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Неверно!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h4 class="modal-title" id="exampleModalLabel">Неверно!</h4>
+<!--        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary btn-close-wrong" data-bs-dismiss="modal">Next question</button>
+        <button type="button" class="btn btn-secondary btn-close-wrong" data-bs-dismiss="modal" style="background-color: #b73d3d">Next question</button>
       </div>
     </div>
   </div>
@@ -71,18 +71,18 @@ export const questionsPageArtistsComponent = new QuestionsPageArtistsComponent({
     </div>
   </div>
       
-<!--    <div class="question-progress">-->
-<!--         <label class="bullet bullet-wrong"></label>-->
-<!--         <label class="bullet bullet-wrong"></label>-->
-<!--         <label class="bullet bullet-right"></label>-->
-<!--         <p class="bullet"></p>-->
-<!--         <p class="bullet"></p>-->
-<!--         <p class="bullet"></p>-->
-<!--         <p class="bullet"></p>-->
-<!--         <p class="bullet"></p>-->
-<!--         <p class="bullet"></p>-->
-<!--         <p class="bullet"></p>-->
-<!--     </div>-->
+    <div class="question-progress">
+         <p class="bullet"></label>
+         <p class="bullet"></p>
+         <p class="bullet"></label>
+         <p class="bullet"></p>
+         <p class="bullet"></p>
+         <p class="bullet"></p>
+         <p class="bullet"></p>
+         <p class="bullet"></p>
+         <p class="bullet"></p>
+         <p class="bullet"></p>
+     </div>
 
 
   <!-- Modal Trigger -->
@@ -141,9 +141,9 @@ function generateQuestion() {
             const invalidRandomImage = getRandomInvalidImage(el);
             if (index === randomPositionID) {
 
-                return `<button data-bs-toggle="modal" data-bs-target="#right" style="border: none; background: transparent"><img class="question-cards-img modal-trigger" data-target="modal-right" src="../../image-data/img/${el.imageNum}.jpg" alt="Picture"/></button>`;
+                return `<button data-bs-toggle="modal" data-bs-target="#right" style="border: none; background: transparent; padding: 0"><img class="question-cards-img modal-trigger" data-target="modal-right" src="../../image-data/img/${el.imageNum}.jpg" alt="Picture"/></button>`;
             }
-            return `<button data-bs-toggle="modal" data-bs-target="#Wrong" style="border: none; background: transparent"><img class="question-cards-img modal-trigger" data-target="modal-wrong"
+            return `<button data-bs-toggle="modal" data-bs-target="#Wrong" style="border: none; background: transparent; padding: 0"><img class="question-cards-img modal-trigger" data-target="modal-wrong"
                 src="../../image-data/img/${invalidRandomImage.imageNum}.jpg" alt="Picture"/></button>`;
 
         })
@@ -165,14 +165,14 @@ function generateQuestion() {
 
 
 function sliderAlgorithm() {
-    const slides = document.querySelectorAll('.my-slider .slider-line')
+    const slides = document.querySelectorAll('.my-slider .slider-line .slider-el')
     const sliderLine = document.querySelector('.slider-line')
     let count = 0;
     let width;
 
 
     function init() {
-        width = document.querySelector('.slider-line').offsetWidth;
+        width = document.querySelector('.my-slider').offsetWidth;
         sliderLine.style.width = width * slides.length + 'px';
         slides.forEach(item => {
             item.style.width = width + 'px';
@@ -181,12 +181,8 @@ function sliderAlgorithm() {
     }
 
     window.addEventListener('resize', init)
-    init()
+    init();
 
-    // document.querySelector('.finish-question').addEventListener('click', () => {
-    //     count++;
-    //     rollSlider()
-    // })
     document.querySelector('.btn-close-right').addEventListener('click', () => {
         count++;
         rollSlider();
@@ -200,17 +196,6 @@ function sliderAlgorithm() {
     function rollSlider() {
         sliderLine.style.transform = 'translate(-' + count * width + 'px)'
     }
-    var wrongModal = document.getElementById('Wrong')
-    wrongModal.addEventListener('hidden.bs.modal', function (event) {
-        count++;
-        rollSlider()
-    })
-
-    var rigthModal = document.getElementById('rigth')
-    rigthModal.addEventListener('hidden.bs.modal', function (event) {
-        count++;
-        rollSlider()
-    })
 }
 
 
@@ -252,8 +237,7 @@ Array.from(document.querySelectorAll('.question-cards-img')).forEach((element)=>
 function imageClickListener(instance) {
     document.querySelectorAll('.question-cards-img').forEach(item => {
             item.addEventListener('click', (elem) => {
-                console.log(item)
-                console.log(instance)
+
             })
 
         }

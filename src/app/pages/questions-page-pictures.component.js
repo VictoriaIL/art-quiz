@@ -21,15 +21,15 @@ export const questionsPagePicturesComponent = new QuestionsPagePicturesComponent
     <a href="#categoryPictures"><button class="nav-panel-button effect">Categories</button></a> 
 </nav>
 <div class="wrapper">
-       <div class="question-wrapper">
+       <div class="question-pictures-wrapper">
     <p class="main-question"> Кто является автором данной картины?</p>
 <!--    <div class="question-cards">-->
         <img class="question-pictures-card-img" src="../../images/categories/artists/001.jpg" alt="Picture">
-<!--    </div>-->
+    </div>
     <div class="question-progress">
-        <p class="bullet bullet-wrong"></p>
-        <p class="bullet bullet-wrong"></p>
-        <p class="bullet bullet-right"></p>
+        <p class="bullet"></p>
+        <p class="bullet"></p>
+        <p class="bullet"></p>
         <p class="bullet"></p>
         <p class="bullet"></p>
         <p class="bullet"></p>
